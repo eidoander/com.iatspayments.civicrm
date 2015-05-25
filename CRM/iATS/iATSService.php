@@ -660,6 +660,11 @@ Class iATS_Service_Request {
   }
 
   public static function isDPM($pp) {
+    switch($pp['class_name']) {
+      case 'Payment_iATSService':
+      case 'Payment_iATSServiceACHEFT':
+        return TRUE;
+    }
     return self::iATS_USE_DPMPROCESS; 
   }
 
